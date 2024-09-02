@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-lb-deploy
+  labels:
+    app: httpd-lb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpd-lb
+  template:
+    metadata:
+      labels:
+        app: httpd-lb
+    spec:
+      containers:
+      - name: httpd
+        image: default-route-openshift-image-registry.apps-crc.testing/openshift/httpd
+        ports:
+        - containerPort: 8080
