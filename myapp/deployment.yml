@@ -4,8 +4,9 @@ metadata:
   name: httpd-lb-deploy
   labels:
     app: httpd-lb
+    version: v1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: httpd-lb
